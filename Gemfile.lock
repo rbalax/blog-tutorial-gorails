@@ -282,7 +282,6 @@ DEPENDENCIES
   stimulus-rails
   tailwindcss-rails (~> 2.3)
   turbo-rails
-  tzinfo-data
   web-console
 
 RUBY VERSION

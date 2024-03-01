@@ -1,16 +1,12 @@
-# This file should ensure the existence of records required to run the application in every environment (production,
-# development, test). The code here should be idempotent so that it can be executed at any point in every environment.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Example:
-#
-#   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
-#     MovieGenre.find_or_create_by!(name: genre_name)
-#   end
 require 'faker'
 
-n = 1
-10.times do
-  BlogPost.create(title: Faker::Book.title, body: Faker::Lorem.paragraphs(number: 3).join("\n\n"))
-  n += 1
+20.times do |n|
+  case n % 3
+  when 0
+    BlogPost.create(title: Faker::Book.title, body: Faker::Lorem.paragraphs(number: 3).join("\n\n"), published_at: nil)
+  when 1
+    BlogPost.create(title: Faker::Book.title, body: Faker::Lorem.paragraphs(number: 3).join("\n\n"), published_at: Time.current - rand(1..365).days)
+  when 2
+    BlogPost.create(title: Faker::Book.title, body: Faker::Lorem.paragraphs(number: 3).join("\n\n"), published_at: Time.current + rand(1..365).days)
+  end
 end

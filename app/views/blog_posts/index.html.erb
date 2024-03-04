@@ -7,9 +7,11 @@
     <% if blog_post.draft?%>
       <div class="p-2 rounded bg-gray-200 text-gray-900">Draft</div>
       <% elsif blog_post.scheduled?%>
-      <div class="p-2 rounded bg-green-200 text-green-900">Scheduled</div>
+      <div class="p-2 rounded bg-orange-200 text-orange-900">Scheduled</div>
+      <% elsif blog_post.published? %>
+       <div class="p-2 rounded bg-green-200 text-green-900">Published!</div>
     <% end %>
   </div>
-  <p><%= blog_post.body %></li></p>
+  <p><%= blog_post.content %></li></p>
 </div>
 <% end %>

@@ -1,6 +1,10 @@
 class BlogPost < ApplicationRecord
+
+  has_rich_text :content
+
   validates :title, presence: true
-  validates :body, presence: true
+  validates :content, presence: true
+
 
   scope :sorted, -> {order(published_at: :asc)}
   scope :draft, -> {where published_at: nil}

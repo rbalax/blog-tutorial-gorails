@@ -33,7 +33,7 @@ class BlogPostsController < ApplicationController
 
   def update
     if @blog_post.update(blog_post_params)
-      puts blog_post_params[:body]
+      puts blog_post_params[:content]
 
     redirect_to @blog_post, flash: { success: "Blog post was successfully updated." }
   else
@@ -49,7 +49,7 @@ class BlogPostsController < ApplicationController
   private
 
   def blog_post_params
-    params.require(:blog_post).permit(:title, :body, :published_at)
+    params.require(:blog_post).permit(:title, :content, :published_at)
   end
 
   def set_blog_post
@@ -59,6 +59,6 @@ class BlogPostsController < ApplicationController
       @blog_post = BlogPost.published.find(params[:id])
     end
   rescue ActiveRecord::RecordNotFound
-    redirect_to roo_path
+    redirect_to root_path
   end
 end

@@ -11,7 +11,7 @@ gem "sprockets-rails"
 # Use pg as the database for Active Record
 gem "pg", "~> 1.1"
 gem 'ruby-vips', '~> 2.2', '>= 2.2.1'
-gem 'poppler', '~> 4.2', '>= 4.2.1'
+
 # Use the Puma web server [https://github.com/puma/puma]
 gem "puma", ">= 5.0"
 

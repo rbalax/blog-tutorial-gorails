@@ -1,11 +1,11 @@
-<h1>My blog</h1>
+<div class="text-4xl flex justify-center"><h1>My blog</h1></div>
 
 <% @blog_posts.each do |blog_post| %>
 <div>
   <h2><%= link_to blog_post.title, blog_post_path(blog_post) %></li></h2>
   <div>
     <% if blog_post.draft?%>
-      <div class="p-2 rounded bg-gray-200 text-gray-900">Draft</div>
+      <div class="p-2 rounded bg-blue-200 text-blue-900">Draft</div>
       <% elsif blog_post.scheduled?%>
       <div class="p-2 rounded bg-orange-200 text-orange-900">Scheduled</div>
       <% elsif blog_post.published? %>
@@ -15,3 +15,5 @@
   <p><%= blog_post.content %></li></p>
 </div>
 <% end %>
+
+<%== pagy_nav(@pagy) %>

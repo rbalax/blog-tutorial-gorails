@@ -1,6 +1,6 @@
 require 'faker'
 
-20.times do |n|
+100.times do |n|
   case n % 3
   when 0
     BlogPost.create(title: Faker::Book.title, content: Faker::Lorem.paragraphs(number: 3).join("\n\n"), published_at: nil)

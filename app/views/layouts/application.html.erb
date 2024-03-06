@@ -1,17 +1,16 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Blog</title>
+    <title>Blog Go Rails</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body class="prose mx-auto">
+  <body class="prose mx-auto mb-16">
     <% flash.each do |key, value| %>
       <div class="alert alert-<%= key %>">
         <%= value %>
@@ -19,15 +18,16 @@
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <div>
+    <div class="flex justify-between">
       <% if user_signed_in? %>
-      <%= link_to "Profile" , edit_user_registration_path%>
-      <%= button_to "Log Out", destroy_user_session_path, method: :delete %>
-      <%= link_to "New blog post", new_blog_post_path  %>
+      <%= link_to "Profile", edit_user_registration_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+      <%= button_to "Log Out", destroy_user_session_path, method: :delete, class: "bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded" %>
+      <%= link_to "New blog post", new_blog_post_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded ml-2" %>
       <% else %>
-      <%= button_to "Login", new_user_session_path %>
-      <%= button_to "Sign Up", new_user_registration_path %>
+      <%= button_to "Login", new_user_session_path, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2" %>
+      <%= button_to "Sign Up", new_user_registration_path, class: "bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" %>
       <% end%>
+    </div>
     <%= yield %>
   </body>
 </html>

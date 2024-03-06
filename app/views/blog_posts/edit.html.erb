@@ -1,5 +1,14 @@
-<h1>Edit page</h1>
 
-<%= render partial: 'form', locals: {blog_post: @blog_post}%>
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <div class="py-6 md:py-8">
+    <h1 class="text-2xl font-semibold text-gray-900">Edit page</h1>
+  </div>
 
-<%= button_to "Delete", blog_post_path(@blog_post), method: :delete, data: {turbo_confirm: "are you sure?"} %>
+  <div class="bg-white shadow sm:rounded-lg px-4 py-5 sm:px-6">
+    <%= render partial: 'form', locals: {blog_post: @blog_post} %>
+  </div>
+
+  <div class="bg-white shadow sm:rounded-lg px-4 py-5 sm:px-6 mt-4 flex justify-end">
+    <%= button_to "Delete", blog_post_path(@blog_post), method: :delete, data: {turbo_confirm: "are you sure?"}, class: "bg-red-600 hover:bg-red-700 text-white font-semibold py-2 px-4 rounded" %>
+  </div>
+</div>
